@@ -1,0 +1,5 @@
+const API_KEY = "something";
+
+module.exports = {
+  API_KEY
+};
