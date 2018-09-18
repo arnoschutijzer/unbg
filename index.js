@@ -2,15 +2,18 @@
 const Unbg = require('./lib/unbg');
 
 async function run() {
-  const unbg = new Unbg();
 
   try {
+    const unbg = new Unbg();
+    // FIXME: don't always clear cache :)
+    await unbg.clearCache();
+    await unbg.createCache();
     const metadata = await unbg.fetchRandomMetadata();
     const path = await unbg.fetchAndWriteImage(metadata);
     console.log(`setting ${path}`);
     await unbg.setBackground(path);
   } catch(error) {
-    console.error(error);
+    console.log(error);
   }
 }
 
