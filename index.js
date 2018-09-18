@@ -7,7 +7,8 @@ async function run() {
   try {
     const metadata = await unbg.fetchRandomMetadata();
     const path = await unbg.fetchAndWriteImage(metadata);
-    console.log(path);
+    console.log(`setting ${path}`);
+    await unbg.setBackground(path);
   } catch(error) {
     console.error(error);
   }
