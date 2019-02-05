@@ -2,7 +2,6 @@
 const Unbg = require('./lib/unbg');
 
 async function run() {
-
   try {
     const unbg = new Unbg();
     // FIXME: don't always clear cache :)
@@ -14,6 +13,7 @@ async function run() {
     await unbg.setBackground(path);
   } catch(error) {
     console.log(error);
+    return process.exit(1);
   }
 }
 
